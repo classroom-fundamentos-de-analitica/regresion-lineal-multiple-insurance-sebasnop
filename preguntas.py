@@ -11,6 +11,7 @@ selección de las n variables más relevantes usando una prueba f.
 
 import pandas as pd
 
+ruta = "insurance.csv"
 
 def pregunta_01():
     """
@@ -18,16 +19,16 @@ def pregunta_01():
     -------------------------------------------------------------------------------------
     """
     # Lea el archivo `insurance.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = pd.read_csv(ruta)
 
     # Asigne la columna `charges` a la variable `y`.
-    ____ = ____
+    y = df['charges'].copy()
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    ____ = ____.____(____)
+    X = df.copy()
 
     # Remueva la columna `charges` del DataFrame `X`.
-    ____.____(____)
+    X.drop(columns=['charges'], inplace=True)
 
     # Retorne `X` y `y`
     return X, y
